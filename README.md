@@ -91,5 +91,5 @@ commitlint.
    O repositório é privado, então a publicação não usa `--provenance` (o npm só aceita provenance de repositório público).
 2. **Storybook** — no Cloudflare, crie o projeto Pages `wrenpages-storybook` (Direct Upload) e salve os secrets
    `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`. Sem eles o job só emite um aviso e não falha.
-3. **Branch protection** (requer GitHub Pro/Team em repositório privado) — proteja `main` e `develop` exigindo o check
+3. **Branch protection** (requer GitHub Team na organização, ou repositório público; no Free privado a API responde 403) — proteja `main` e `develop` exigindo o check
    `CI / Lint · Typecheck · Test · Build`.
