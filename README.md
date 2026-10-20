@@ -64,20 +64,20 @@ import { tokens } from '@wrenpages/design-system'; // valores tipados (breakpoin
 
 ## Fluxo de trabalho (Gitflow)
 
-| Branch            | Para quê                                         | Pipeline                                                                                                                   |
-| ----------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `main`            | Somente versões publicadas                       | `release.yml`: publica no npm (se a versão subiu), cria tag `vX.Y.Z` + GitHub Release, publica o Storybook no GitHub Pages |
-| `develop`         | Integração                                       | `ci.yml`                                                                                                                   |
-| `feature/<nome>`  | Nova funcionalidade, sai de `develop`            | `ci.yml`                                                                                                                   |
-| `release/<x.y.z>` | Estabilização + bump de versão, sai de `develop` | `ci.yml`                                                                                                                   |
-| `hotfix/<x.y.z>`  | Correção urgente, sai de `main`                  | `ci.yml`                                                                                                                   |
+| Branch            | Para quê                                         | Pipeline                                                                                                                       |
+| ----------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `main`            | Somente versões publicadas                       | `release.yml`: publica no npm (se a versão subiu), cria tag `vX.Y.Z` + GitHub Release, publica o Storybook no Cloudflare Pages |
+| `develop`         | Integração                                       | `ci.yml`                                                                                                                       |
+| `feature/<nome>`  | Nova funcionalidade, sai de `develop`            | `ci.yml`                                                                                                                       |
+| `release/<x.y.z>` | Estabilização + bump de versão, sai de `develop` | `ci.yml`                                                                                                                       |
+| `hotfix/<x.y.z>`  | Correção urgente, sai de `main`                  | `ci.yml`                                                                                                                       |
 
 **Publicar uma versão nova**
 
 1. `git switch develop && git switch -c release/1.1.0`
 2. `npm version minor --no-git-tag-version` (ou `patch`/`major`) e atualize o `CHANGELOG.md`
 3. Abra PR `release/1.1.0 → main`. Ao fazer merge, o `release.yml` compara a versão do `package.json` com a do npm e,
-   se for maior, publica automaticamente com provenance.
+   se for maior, publica automaticamente.
 4. Faça merge de `main` de volta em `develop`.
 
 Commits seguem [Conventional Commits](https://www.conventionalcommits.org) (`feat:`, `fix:`, `docs:`…), validados pelo
@@ -87,6 +87,9 @@ commitlint.
 
 1. **npm** — crie a organização gratuita `wrenpages` em npmjs.com (ou troque o escopo do `name` no `package.json`
    para o seu usuário, ex.: `@seu-usuario/wrenpages-design-system`). Gere um _Granular Access Token_ com permissão de
-   publish e salve como secret `NPM_TOKEN` no repositório (Settings → Secrets → Actions), dentro do environment `npm`.
-2. **GitHub Pages** — Settings → Pages → Source: _GitHub Actions_.
-3. **Branch protection** — proteja `main` e `develop` exigindo o check `CI / Lint · Typecheck · Test · Build`.
+   publish e salve como secret `NPM_TOKEN` no repositório (Settings → Secrets and variables → Actions).
+   O repositório é privado, então a publicação não usa `--provenance` (o npm só aceita provenance de repositório público).
+2. **Storybook** — no Cloudflare, crie o projeto Pages `wrenpages-storybook` (Direct Upload) e salve os secrets
+   `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`. Sem eles o job só emite um aviso e não falha.
+3. **Branch protection** (requer GitHub Pro/Team em repositório privado) — proteja `main` e `develop` exigindo o check
+   `CI / Lint · Typecheck · Test · Build`.
