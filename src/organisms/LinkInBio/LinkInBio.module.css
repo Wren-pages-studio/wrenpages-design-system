@@ -1,0 +1,38 @@
+.linkbio {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-12) var(--space-6);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: var(--size-measure-linkbio);
+  text-align: center;
+}
+
+.symbol {
+  border-radius: var(--radius-full);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.site {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-tap-min);
+  color: var(--color-text-muted);
+  font-family: var(--text-caption-family);
+  font-size: var(--text-caption);
+  font-weight: var(--text-caption-weight);
+  line-height: var(--text-caption-line-height);
+}

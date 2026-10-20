@@ -1,0 +1,14 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}

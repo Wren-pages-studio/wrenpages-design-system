@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.list {
+  width: 100%;
+  max-width: var(--size-measure-prose);
+  margin: var(--space-0) auto;
+}
+
+.footer {
+  text-align: center;
+}

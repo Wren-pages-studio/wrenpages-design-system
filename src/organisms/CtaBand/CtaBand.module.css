@@ -1,0 +1,17 @@
+.band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-10) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+@container page (min-width: 768px) {
+  .band {
+    padding: var(--space-12);
+  }
+}

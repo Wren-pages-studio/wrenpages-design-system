@@ -1,0 +1,29 @@
+.marker {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--size-marker-sm);
+  height: var(--size-marker-sm);
+  border-radius: var(--radius-full);
+  vertical-align: middle;
+}
+
+.brand {
+  background: var(--color-bg-brand-subtle);
+  color: var(--color-icon-brand);
+}
+
+.accent {
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+}
+
+.inverse {
+  background: var(--color-bg-inverse);
+  color: var(--color-icon-accent);
+}
+
+.muted {
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+}

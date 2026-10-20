@@ -1,0 +1,7 @@
+/* Wren Pages design system — global stylesheet entry.
+   Consumers import it once: `import '@wrenpages/design-system/styles.css'`.
+   Font faces are prepended at build time (see src/styles/fonts.ts). */
+
+@import './tokens.css';
+@import './base.css';
+@import './typography.css';

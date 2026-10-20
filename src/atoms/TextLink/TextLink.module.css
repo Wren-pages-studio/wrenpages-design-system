@@ -1,0 +1,44 @@
+/* Text link · State default|hover|focus|visited */
+.link {
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: var(--border-width-3);
+  transition: color var(--duration-hover) ease-out;
+}
+
+.default {
+  color: var(--color-text-brand);
+}
+
+.default:hover,
+.default.is-hover {
+  color: var(--color-text-primary);
+}
+
+.is-focus {
+  box-shadow: var(--focus-ring);
+}
+
+.is-visited {
+  color: var(--color-text-secondary);
+}
+
+.inverse {
+  color: var(--color-text-inverse);
+}
+
+.inverse:hover {
+  color: var(--color-text-accent);
+}
+
+.quiet {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.quiet:hover {
+  color: var(--color-text-accent);
+  text-decoration: underline;
+}

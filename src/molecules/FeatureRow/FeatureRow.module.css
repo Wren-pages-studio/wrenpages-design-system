@@ -1,0 +1,21 @@
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.brand {
+  color: var(--color-text-primary);
+  font-family: var(--text-body-m-family);
+  font-size: var(--text-body-m);
+  line-height: var(--text-body-s-line-height);
+}
+
+.accent {
+  align-items: center;
+  color: inherit;
+}
+
+.excluded {
+  color: var(--color-text-muted);
+}

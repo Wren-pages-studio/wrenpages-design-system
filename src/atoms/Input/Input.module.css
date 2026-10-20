@@ -1,0 +1,55 @@
+/* Input / Textarea / Select · State default|hover|focus|filled|error|disabled */
+.input {
+  width: 100%;
+  min-height: var(--size-input-h);
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width-1) solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-family: var(--text-body-m-family);
+  font-size: var(--text-body-m);
+  font-weight: var(--text-body-m-weight);
+  line-height: var(--text-caption-line-height);
+  appearance: none;
+  transition:
+    border-color var(--duration-hover) ease-out,
+    box-shadow var(--duration-hover) ease-out;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.input:hover,
+.is-hover {
+  border-color: var(--color-border-brand);
+}
+
+.input:focus,
+.is-focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow:
+    inset 0 0 0 var(--border-width-1) var(--color-border-focus),
+    var(--focus-ring);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-border-error);
+  box-shadow: inset 0 0 0 var(--border-width-1) var(--color-border-error);
+}
+
+.input[aria-invalid='true']:focus {
+  box-shadow:
+    inset 0 0 0 var(--border-width-1) var(--color-border-error),
+    var(--focus-ring);
+}
+
+.input:disabled {
+  border-color: var(--color-border-default);
+  background: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}

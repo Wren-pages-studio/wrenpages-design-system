@@ -1,0 +1,56 @@
+.icon {
+  flex: none;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: var(--icon-stroke-regular);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.xs {
+  width: var(--size-icon-xs);
+  height: var(--size-icon-xs);
+}
+
+.sm {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+}
+
+.md {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.lg {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+}
+
+.bold {
+  stroke-width: var(--icon-stroke-bold);
+}
+
+.filled {
+  fill: currentcolor;
+}
+
+.tone-current {
+  color: inherit;
+}
+
+.tone-default {
+  color: var(--color-icon-default);
+}
+
+.tone-brand {
+  color: var(--color-icon-brand);
+}
+
+.tone-inverse {
+  color: var(--color-icon-inverse);
+}
+
+.tone-accent {
+  color: var(--color-icon-accent);
+}

@@ -1,0 +1,31 @@
+.step {
+  gap: var(--space-4);
+}
+
+.stepNumber {
+  display: grid;
+  place-items: center;
+  width: var(--size-marker-md);
+  height: var(--size-marker-md);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+  font-family: var(--text-label-m-family);
+  font-size: var(--text-label-m);
+  font-weight: var(--text-label-m-weight);
+  line-height: var(--line-height-none);
+}
+
+.problem {
+  gap: var(--space-3);
+}
+
+.problemIcon {
+  display: grid;
+  place-items: center;
+  width: var(--size-marker-lg);
+  height: var(--size-marker-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-accent-subtle);
+  color: var(--color-icon-default);
+}

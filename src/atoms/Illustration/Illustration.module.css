@@ -1,0 +1,163 @@
+/* Illustration · Type bird | bird-flying | image | phone */
+.illus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.illus > svg {
+  width: var(--size-illus-share);
+  height: auto;
+}
+
+.bird,
+.bird-flying {
+  background: var(--color-bg-accent-subtle);
+}
+
+.phone {
+  background: var(--color-bg-brand-subtle);
+}
+
+.phone > svg {
+  width: auto;
+  height: var(--size-illus-phone-share);
+}
+
+.image {
+  aspect-ratio: 4 / 3;
+  background: var(--color-bg-subtle);
+  box-shadow: inset 0 0 0 var(--border-width-1) var(--color-border-default);
+  color: var(--color-text-muted);
+}
+
+/* placements */
+.placement-hero {
+  height: var(--size-hero-visual-h-mobile);
+  aspect-ratio: auto;
+}
+
+.placement-about {
+  height: var(--size-about-illus-h-mobile);
+  aspect-ratio: auto;
+}
+
+.placement-message {
+  width: var(--size-illus-message);
+}
+
+@container page (min-width: 768px) {
+  .placement-hero {
+    height: var(--size-hero-visual-h-tablet);
+  }
+
+  .placement-about {
+    height: var(--size-about-illus-h-tablet);
+  }
+}
+
+@container page (min-width: 1280px) {
+  .placement-hero {
+    height: var(--size-hero-visual-h-desktop);
+  }
+
+  .placement-about {
+    height: var(--size-about-illus-h-desktop);
+  }
+}
+
+/* artwork fills (semantic tokens only) */
+.inverse {
+  fill: var(--color-bg-inverse);
+}
+
+.accent {
+  fill: var(--color-bg-accent);
+}
+
+.accentSubtle {
+  fill: var(--color-bg-accent-subtle);
+}
+
+.brandSubtle {
+  fill: var(--color-bg-brand-subtle);
+}
+
+.errorSubtle {
+  fill: var(--color-bg-error-subtle);
+}
+
+.subtle {
+  fill: var(--color-bg-subtle);
+}
+
+.surface {
+  fill: var(--color-bg-surface);
+}
+
+.border {
+  fill: var(--color-border-default);
+}
+
+.textPrimary {
+  fill: var(--color-text-primary);
+}
+
+.textInverse {
+  fill: var(--color-text-inverse);
+}
+
+.actionPrimary {
+  fill: var(--color-action-primary);
+}
+
+.wing {
+  fill: none;
+  stroke: var(--color-bg-inverse);
+  stroke-width: 3.2;
+  stroke-linejoin: round;
+}
+
+.phoneFrame {
+  fill: var(--color-bg-surface);
+  stroke: var(--color-border-brand);
+  stroke-width: 6;
+}
+
+.speedAccent,
+.speedBrand {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.speedAccent {
+  stroke: var(--color-bg-accent);
+}
+
+.speedBrand {
+  stroke: var(--color-border-brand);
+}
+
+.splitLine {
+  stroke: var(--color-border-brand);
+  stroke-width: 4;
+}
+
+.splitKnob {
+  fill: var(--color-bg-surface);
+  stroke: var(--color-border-brand);
+  stroke-width: 4;
+}
+
+.splitArrows {
+  fill: none;
+  stroke: var(--color-border-brand);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

@@ -1,0 +1,2 @@
+export { Footer, Placeholder } from './Footer';
+export type { FooterProps, FooterColumn, FooterLink } from './Footer';

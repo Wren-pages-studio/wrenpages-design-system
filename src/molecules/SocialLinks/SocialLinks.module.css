@@ -1,0 +1,19 @@
+.social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.link {
+  display: grid;
+  place-items: center;
+  width: var(--size-tap-min);
+  height: var(--size-tap-min);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-brand-subtle);
+  color: var(--color-icon-default);
+  transition: background-color var(--duration-hover) ease-out;
+}
+
+.link:hover {
+  background: var(--color-bg-accent);
+}

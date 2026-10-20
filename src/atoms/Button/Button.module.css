@@ -1,0 +1,160 @@
+/* Button · Variant primary|secondary|ghost|link × Size sm|md|lg × State */
+.button {
+  --button-h: var(--size-button-h-md);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--button-h);
+  padding: var(--space-0) var(--space-5);
+  border: var(--border-width-2) solid transparent;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-brand);
+  font-family: var(--text-label-m-family);
+  font-size: var(--text-label-m);
+  font-weight: var(--text-label-m-weight);
+  line-height: var(--text-label-m-line-height);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-hover) ease-out,
+    border-color var(--duration-hover) ease-out,
+    color var(--duration-hover) ease-out,
+    box-shadow var(--duration-hover) ease-out;
+}
+
+.icon {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.arrow {
+  transition: transform var(--duration-hover) ease-out;
+}
+
+.button:hover .arrow,
+.is-hover .arrow {
+  transform: translateX(var(--nudge-x));
+}
+
+/* sizes */
+.sm {
+  --button-h: var(--size-button-h-sm);
+
+  padding: var(--space-0) var(--space-4);
+  font-size: var(--text-label-s);
+  letter-spacing: var(--text-label-s-tracking);
+}
+
+.sm .icon {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+}
+
+.md {
+  --button-h: var(--size-button-h-md);
+}
+
+.lg {
+  --button-h: var(--size-button-h-lg);
+
+  padding: var(--space-0) var(--space-8);
+}
+
+.block {
+  width: 100%;
+}
+
+/* variants */
+.primary {
+  background: var(--color-action-primary);
+  color: var(--color-text-on-accent);
+}
+
+.primary:hover,
+.primary.is-hover {
+  background: var(--color-action-primary-hover);
+}
+
+.primary:active,
+.primary.is-pressed {
+  background: var(--color-action-primary-pressed);
+}
+
+.secondary {
+  border-color: var(--color-action-secondary);
+}
+
+.secondary:hover,
+.secondary.is-hover {
+  border-color: var(--color-action-secondary-hover);
+  background: var(--color-bg-brand-subtle);
+}
+
+.secondary:active,
+.secondary.is-pressed {
+  border-color: var(--color-action-secondary-hover);
+  background: var(--color-action-ghost-pressed);
+}
+
+.ghost:hover,
+.ghost.is-hover {
+  background: var(--color-action-ghost-hover);
+}
+
+.ghost:active,
+.ghost.is-pressed {
+  background: var(--color-action-ghost-pressed);
+}
+
+.link {
+  --button-h: auto;
+
+  padding: var(--space-1) var(--space-0);
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-decoration: underline;
+  text-underline-offset: var(--border-width-3);
+}
+
+.link:hover,
+.link.is-hover,
+.link:active,
+.link.is-pressed {
+  color: var(--color-text-primary);
+}
+
+.button:focus-visible,
+.is-focus {
+  box-shadow: var(--focus-ring);
+}
+
+/* disabled */
+.button:disabled,
+.button[aria-disabled='true'] {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+  background: transparent;
+  border-color: transparent;
+}
+
+.primary:disabled {
+  background: var(--color-bg-disabled);
+}
+
+.secondary:disabled {
+  border-color: var(--color-border-default);
+}
+
+/* on Forest backgrounds */
+.onInverse.secondary {
+  border-color: var(--color-text-inverse);
+  color: var(--color-text-inverse);
+}
+
+.onInverse.secondary:hover {
+  background: var(--color-bg-inverse-strong);
+}
