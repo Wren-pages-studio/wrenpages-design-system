@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Accessibility & Content" />
+
+# Accessibility
+
+- ✅ Touch targets ≥ 44×44 px (buttons md/lg, icon buttons, social links, FAQ rows, checkbox rows, mobile menu rows 56px). Button `sm` (36) only on dense desktop UI.
+- ✅ Contrast AA: Ink/Cream 14.76:1, Cream/Forest 7.02:1, Ink/Honey 8.91:1, Muted/Cream 4.67:1, Coral-700/Cream 4.71:1. Honey/Forest is 4.24:1 → AA for large text and UI graphics; 13px honey eyebrows on Forest are just under 4.5:1 (open item).
+- ✅ Visible focus everywhere: `--focus-ring` on `:focus-visible`.
+- ✅ Every input has a visible `<label>`; help + error tied with `aria-describedby` (automatic in `<FormField>`); errors use icon + text (never color only) and `aria-invalid`; summary alert with `role="alert"`.
+- ✅ Alt text on every image; decorative SVG icons `aria-hidden`; icon-only controls require `label`.
+- ✅ `<html lang="en">`, one H1 per page, skip link (`<PageShell>`), landmarks, `aria-current="page"` on nav, `aria-expanded` on menu & FAQ.
+- ✅ Respects `prefers-reduced-motion`.
+- ✅ Storybook runs the axe a11y addon on every story (`a11y.test = "error"`).
+
+# Content rules
+
+- Copy comes literally from the approved site copy; don’t rewrite.
+- Unknowns are marked visibly as **[PLACEHOLDER]** (`<Placeholder>`), e.g. postal address in the footer, before/after screenshots, testimonial quotes.
+- Concept portfolio pieces always carry the badge **Demo project**.
+- Prices are always shown as full + launch: **$390** ~~$900~~.
+- “We” voice; sign-off “— The Wren Pages team”; never the founder’s name/face; no “our team of experts”.
+- Contacts: wrenpages.studio@gmail.com · wrenpages.pages.dev · @wrenpages (IG/TikTok).
+- Emoji: only the 🐦, max once per screen.

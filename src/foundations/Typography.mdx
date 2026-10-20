@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ResponsiveRoles, TypeRamp } from './docs-blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+**Fraunces 600** (display/headings) + **Inter 400/500/600** (body/labels), self-hosted WOFF2 (OFL) shipped inside the
+package. 18 text styles mirror the Figma text styles. Use them through `<Text variant="…">` — never set font sizes
+by hand.
+
+Each style exposes five tokens: `--text-<style>` (size), `-line-height`, `-tracking`, `-weight`, `-family`.
+
+## Responsive roles
+
+Roles change style with the **page container** width (not the viewport), exactly like Figma breakpoint variants.
+
+<ResponsiveRoles />
+
+## Type ramp
+
+<TypeRamp />
+
+**Rules:** body text ≥ 16px on inputs (17px avoids iOS zoom) · one H1 per page · links always underlined in body copy
+· eyebrows are uppercase Inter 600 with 8% tracking.

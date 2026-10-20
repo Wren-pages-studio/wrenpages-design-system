@@ -1,0 +1,57 @@
+.card {
+  --card-hairline: inset 0 0 0 var(--border-width-1) var(--color-border-default);
+  --card-shadow: 0 0 transparent;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  box-shadow: var(--card-hairline), var(--card-shadow);
+}
+
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+
+.radius-xl {
+  border-radius: var(--radius-xl);
+}
+
+.padding-none {
+  padding: var(--space-0);
+}
+
+.padding-md {
+  padding: var(--space-6);
+}
+
+.padding-lg {
+  padding: var(--space-8) var(--space-6);
+}
+
+.elevation-1 {
+  --card-shadow: var(--shadow-1);
+}
+
+.elevation-2 {
+  --card-shadow: var(--shadow-2);
+}
+
+.elevation-3 {
+  --card-shadow: var(--shadow-3);
+}
+
+.highlighted {
+  --card-hairline: inset 0 0 0 var(--border-width-2) var(--color-border-brand);
+}
+
+.borderless {
+  --card-hairline: 0 0 transparent;
+}
+
+@container page (min-width: 1280px) {
+  .padding-lg {
+    padding: var(--space-8);
+  }
+}

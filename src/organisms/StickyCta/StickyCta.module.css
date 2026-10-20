@@ -1,0 +1,20 @@
+.sticky {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-sticky-cta);
+  padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-3);
+}
+
+.inline {
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .sticky:not(.inline) {
+    display: none;
+  }
+}

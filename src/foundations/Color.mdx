@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { PrimitivePalette, SemanticPalette } from './docs-blocks';
+
+<Meta title="Foundations/Color" />
+
+# Color
+
+Brand: **Forest** `#2F5D50` (primary) · **Honey** `#F4B860` (accent/CTA) · **Cream** `#FBF7F0` (background) ·
+**Ink** `#1F2421` (text) · **Coral** `#E07A5F` (secondary). Swatches below are painted with the CSS variables
+themselves, generated from `src/tokens/*.ts`.
+
+## Primitives (23)
+
+Primitives exist **only to be aliased** by semantic tokens. Components never reference them.
+
+<PrimitivePalette />
+
+## Semantic · mode Light (38)
+
+### Background
+
+<SemanticPalette group="bg" />
+
+### Action
+
+<SemanticPalette group="action" />
+
+### Text
+
+<SemanticPalette group="text" />
+
+### Icon
+
+<SemanticPalette group="icon" />
+
+### Border
+
+<SemanticPalette group="border" />
+
+## Contrast (WCAG AA: 4.5:1 body, 3:1 large text/UI)
+
+| Pair                         | Ratio   | Rule                                 |
+| ---------------------------- | ------- | ------------------------------------ |
+| Ink text on Cream            | 14.76:1 | ✅ Body & headings                   |
+| Cream text on Forest         | 7.02:1  | ✅ Inverse sections, footer          |
+| Ink text on Honey            | 8.91:1  | ✅ Primary buttons, accent badges    |
+| Honey text on Forest         | 4.24:1  | ✅ Eyebrows/accents on Forest only   |
+| Forest text on Cream         | 7.02:1  | ✅ Links, brand headings             |
+| Coral/700 text on Cream      | 4.71:1  | ✅ Error messages only (short)       |
+| Honey text on Cream          | 1.66:1  | ⛔ Never use honey for text on light |
+| Coral/500 body text on Cream | 2.76:1  | ⛔ Coral is not a body-text color    |

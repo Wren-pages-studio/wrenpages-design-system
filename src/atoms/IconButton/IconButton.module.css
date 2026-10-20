@@ -1,0 +1,34 @@
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-tap-min);
+  height: var(--size-tap-min);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-icon-default);
+  cursor: pointer;
+  transition: background-color var(--duration-hover) ease-out;
+}
+
+.iconButton:hover,
+.is-hover {
+  background: var(--color-action-ghost-hover);
+}
+
+.iconButton:active,
+.is-pressed,
+.active {
+  background: var(--color-bg-brand-subtle);
+}
+
+.is-focus {
+  box-shadow: var(--focus-ring);
+}
+
+.iconButton:disabled {
+  color: var(--color-text-disabled);
+  background: var(--color-bg-disabled);
+  cursor: not-allowed;
+}

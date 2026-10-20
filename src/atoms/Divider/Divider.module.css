@@ -1,0 +1,19 @@
+.divider {
+  margin: var(--space-0);
+  border: 0;
+  background: var(--color-border-default);
+}
+
+.horizontal {
+  width: 100%;
+  height: var(--border-width-1);
+}
+
+.vertical {
+  width: var(--border-width-1);
+  height: var(--size-divider-vertical-h);
+}
+
+.inverse {
+  background: var(--color-bg-inverse-strong);
+}

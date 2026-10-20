@@ -1,0 +1,69 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Logo } from '../atoms/Logo';
+
+<Meta title="Introduction" />
+
+<Logo />
+
+# Wren Pages — Design System
+
+**Small sites. Big first impressions.** This Storybook is the documentation and the source of truth for every
+visual decision used by the Wren Pages website. It is published to npm as `@wrenpages/design-system` and consumed
+by the site like a puzzle: the site only composes pieces, it never invents styles.
+
+## Install
+
+```bash
+npm install @wrenpages/design-system
+```
+
+```tsx
+// main.tsx — once
+import '@wrenpages/design-system/styles.css';
+import { LinkProvider, PageShell, Header, Button } from '@wrenpages/design-system';
+```
+
+Plug your router once so every link in the system navigates client-side:
+
+```tsx
+<LinkProvider component={({ href, ...props }) => <RouterLink to={href} {...props} />}>
+  <App />
+</LinkProvider>
+```
+
+## Atomic structure
+
+| Level         | What lives there                                                             | Examples                                      |
+| ------------- | ---------------------------------------------------------------------------- | --------------------------------------------- |
+| **Tokens**    | Every color, space, radius, size, type style, shadow, motion and layer value | `--color-bg-canvas`, `--space-6`, `--text-h2` |
+| **Atoms**     | Smallest pieces                                                              | Button, Icon, Input, Badge, Logo, Card        |
+| **Molecules** | Atoms working together                                                       | FormField, FaqItem, StepCard, PricingFeature  |
+| **Organisms** | Full sections                                                                | Header, Hero, PricingCard, AuditForm, Footer  |
+| **Templates** | Page shell with slots                                                        | PageShell                                     |
+| **Layout**    | Token-driven primitives                                                      | Section, Container, Stack, Grid               |
+
+## The golden rule: everything via tokens
+
+- **No loose numbers.** Every fill, stroke, gap, padding, radius, size and text style comes from a token.
+  `stylelint` (`scale-unlimited/declaration-strict-value`) fails the build on hard-coded values, and the site's ESLint
+  forbids the `style` prop.
+- **If something is missing, the design is missing a decision.** Add the token to `src/tokens/*.ts` (and to Figma),
+  run `npm run tokens`, and only then use it. Never inline it.
+- Components use **semantic** tokens only (`--color-bg-*`, `--color-text-*`…). Primitives exist to be aliased.
+
+## Naming
+
+Components mirror Figma's `Category/Name/Variant`. Variant properties are always `variant`, `size`, `tone`, `state`
+(plus `open`, `highlighted`, `placement` where needed). States use real pseudo-classes; the `visualState` prop exists
+only to pin a state in these docs.
+
+## Handoff
+
+| Figma                   | Code                                   |
+| ----------------------- | -------------------------------------- |
+| `color/bg/canvas`       | `var(--color-bg-canvas)`               |
+| `space/6`               | `var(--space-6)`                       |
+| `radius/md`             | `var(--radius-md)`                     |
+| Text style `Heading/H2` | `<Text variant="h2">` · `.wp-text--h2` |
+| `Elevation/2 · Raised`  | `var(--shadow-2)`                      |
+| `Focus/Ring`            | `var(--focus-ring)`                    |
