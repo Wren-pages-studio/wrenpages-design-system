@@ -1,2 +1,2 @@
 export { WorkCard } from './WorkCard';
-export type { WorkCardProps } from './WorkCard';
+export type { WorkCardProps, WorkCardBadge } from './WorkCard';

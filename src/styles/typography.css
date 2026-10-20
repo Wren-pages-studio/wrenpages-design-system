@@ -186,6 +186,14 @@
   letter-spacing: var(--text-m-h2-tracking);
 }
 
+.wp-text--closing {
+  font-family: var(--text-body-m-strong-family);
+  font-size: var(--text-body-m-strong);
+  font-weight: var(--text-body-m-strong-weight);
+  line-height: var(--text-body-m-strong-line-height);
+  letter-spacing: var(--text-body-m-strong-tracking);
+}
+
 @container page (min-width: 768px) {
   .wp-text--hero {
     font-family: var(--text-display-l-family);
@@ -225,6 +233,14 @@
     font-weight: var(--text-h2-weight);
     line-height: var(--text-h2-line-height);
     letter-spacing: var(--text-h2-tracking);
+  }
+
+  .wp-text--closing {
+    font-family: var(--text-h4-family);
+    font-size: var(--text-h4);
+    font-weight: var(--text-h4-weight);
+    line-height: var(--text-h4-line-height);
+    letter-spacing: var(--text-h4-tracking);
   }
 }
 

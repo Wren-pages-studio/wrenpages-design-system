@@ -12,8 +12,9 @@ export const navItems: HeaderNavItem[] = [
 ];
 
 export const social: SocialLink[] = [
-  { icon: 'instagram', href: '#', label: 'Wren Pages on Instagram (@wrenpages)' },
-  { icon: 'tiktok', href: '#', label: 'Wren Pages on TikTok (@wrenpages)' },
+  { icon: 'instagram', href: 'https://www.instagram.com/wrenpages/', label: 'Wren Pages on Instagram (@wrenpages)' },
+  { icon: 'tiktok', href: 'https://www.tiktok.com/@wrenpagesstudio', label: 'Wren Pages on TikTok (@wrenpagesstudio)' },
+  { icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61595434298711', label: 'Wren Pages on Facebook' },
   { icon: 'mail', href: 'mailto:wrenpages.studio@gmail.com', label: 'Email wrenpages.studio@gmail.com' },
 ];
 
@@ -33,8 +34,9 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: 'wrenpages.studio@gmail.com', href: 'mailto:wrenpages.studio@gmail.com' },
       { label: 'Site: wrenpages.pages.dev', href: '/' },
-      { label: 'Instagram @wrenpages', href: '#' },
-      { label: 'TikTok @wrenpages', href: '#' },
+      { label: 'Instagram @wrenpages', href: 'https://www.instagram.com/wrenpages/' },
+      { label: 'TikTok @wrenpagesstudio', href: 'https://www.tiktok.com/@wrenpagesstudio' },
+      { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61595434298711' },
     ],
   },
 ];
