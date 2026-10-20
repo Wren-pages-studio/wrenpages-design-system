@@ -8,6 +8,7 @@
   --forest-700: #2F5D50;
   --forest-900: #1E3D35;
   --honey-100: #FCEBCB;
+  --honey-300: #F7C67A;
   --honey-400: #F4B860;
   --honey-500: #E9A848;
   --honey-600: #D99A3A;
@@ -51,7 +52,7 @@
   --color-text-muted: var(--ink-500);
   --color-text-inverse: var(--cream-100);
   --color-text-brand: var(--forest-700);
-  --color-text-accent: var(--honey-400);
+  --color-text-accent: var(--honey-300);
   --color-text-on-accent: var(--ink-900);
   --color-text-error: var(--coral-700);
   --color-text-success: var(--green-700);

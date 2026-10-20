@@ -28,8 +28,8 @@ jobs:
       should_publish: ${{ steps.version.outputs.should_publish }}
       version: ${{ steps.version.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -46,8 +46,8 @@ jobs:
     if: needs.verify.outputs.should_publish == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -77,9 +77,9 @@ jobs:
       - name: Cloudflare not configured yet
         if: env.HAS_CF != 'true'
         run: echo "::warning::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets to publish the Storybook."
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: env.HAS_CF == 'true'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         if: env.HAS_CF == 'true'
         with:
           node-version-file: .nvmrc

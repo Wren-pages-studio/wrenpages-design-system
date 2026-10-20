@@ -98,6 +98,8 @@ export const responsiveText = {
   section: ['m-h2', 'h2', 'h2'],
   lead: ['body-m', 'body-l', 'body-l'],
   stat: ['m-h2', 'h2', 'h2'],
+  /** Closing line of the problem section: Body/M Strong on mobile, Fraunces H4 from tablet. */
+  closing: ['body-m-strong', 'h4', 'h4'],
 } as const satisfies Record<string, readonly [TextStyleName, TextStyleName, TextStyleName]>;
 
 export type ResponsiveTextRole = keyof typeof responsiveText;

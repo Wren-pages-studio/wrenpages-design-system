@@ -1,6 +1,6 @@
 {
   "name": "@wrenpages/design-system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Wren Pages design system — tokens, atoms, molecules, organisms and templates in React.",
   "license": "UNLICENSED",
   "author": "Wren Pages <wrenpages.studio@gmail.com>",
@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vitor-porfirio/wrenpages-design-system.git"
+    "url": "git+https://github.com/Wren-pages-studio/wrenpages-design-system.git"
   },
   "engines": {
     "node": ">=22"

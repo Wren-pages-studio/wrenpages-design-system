@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Button } from '../atoms/Button';
+import { ConceptSiteArt } from '../atoms/Illustration';
 import { Input } from '../atoms/Input';
+import { Text } from '../atoms/Text';
 import { Textarea } from '../atoms/Textarea';
 import { Grid } from '../layout';
 import { CtaGroup } from './CtaGroup';
@@ -11,6 +13,7 @@ import { FormField } from './FormField';
 import { ProblemCard, StepCard } from './InfoCard';
 import { LinkButton } from './LinkButton';
 import { NavItem } from './NavItem';
+import { Prose } from './Prose';
 import { SectionHeading } from './SectionHeading';
 import { SocialLinks } from './SocialLinks';
 import { Stat } from './Stat';
@@ -151,8 +154,9 @@ export const LinksAndCards: Story = {
     <div className="sb-stack">
       <SocialLinks
         items={[
-          { icon: 'instagram', href: '#', label: 'Wren Pages on Instagram (@wrenpages)' },
-          { icon: 'tiktok', href: '#', label: 'Wren Pages on TikTok (@wrenpages)' },
+          { icon: 'instagram', href: 'https://www.instagram.com/wrenpages/', label: 'Wren Pages on Instagram (@wrenpages)' },
+          { icon: 'tiktok', href: 'https://www.tiktok.com/@wrenpagesstudio', label: 'Wren Pages on TikTok (@wrenpagesstudio)' },
+          { icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61595434298711', label: 'Wren Pages on Facebook' },
           { icon: 'mail', href: 'mailto:wrenpages.studio@gmail.com', label: 'Email wrenpages.studio@gmail.com' },
         ]}
       />
@@ -204,3 +208,70 @@ function ToastDemo() {
 }
 
 export const ToastOverlay: Story = { name: 'Toast', render: () => <ToastDemo /> };
+
+export const ConceptWorkCards: Story = {
+  name: 'Work card · Concept (v1.1)',
+  render: () => (
+    <Grid variant="work">
+      <WorkCard
+        name="Willow & Comb Hair Salon"
+        type="Salon site with online booking"
+        badge={{ label: 'Concept', tone: 'accent' }}
+        media={<ConceptSiteArt motif="scissors" />}
+        mediaCaption="Sample site for a fictional business"
+      />
+      <WorkCard
+        name="Sharp Corner Barbershop"
+        type="Barbershop site with price list"
+        badge={{ label: 'Concept', tone: 'accent' }}
+        media={<ConceptSiteArt motif="pole" />}
+        mediaCaption="Sample site for a fictional business"
+      />
+      <WorkCard
+        name="Foxwell Home Services"
+        type="Handyman site with quote request"
+        badge={{ label: 'Concept', tone: 'accent' }}
+        media={<ConceptSiteArt motif="house" />}
+        mediaCaption="Sample site for a fictional business"
+      />
+    </Grid>
+  ),
+};
+
+export const ProseLegal: Story = {
+  name: 'Prose · legal text',
+  render: () => (
+    <Prose>
+      <section>
+        <h2>What we collect</h2>
+        <p>When you request a free website audit, our form asks for:</p>
+        <ul>
+          <li>
+            <strong>Your name</strong>
+          </li>
+          <li>
+            <strong>Your email address</strong>
+          </li>
+          <li>
+            <strong>An optional message</strong> about what you&apos;d like help with
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Questions about your privacy? Email <a href="mailto:wrenpages.studio@gmail.com">wrenpages.studio@gmail.com</a>.
+        </p>
+      </section>
+    </Prose>
+  ),
+};
+
+export const ClosingLine: Story = {
+  name: 'Text · closing role (v1.1)',
+  render: () => (
+    <Text variant="closing" tone="brand">
+      You&apos;ve done the hard part — happy customers. Let&apos;s make your website say so.
+    </Text>
+  ),
+};

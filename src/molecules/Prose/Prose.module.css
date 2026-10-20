@@ -1,0 +1,71 @@
+/* Prose · long-form text built from the text-style tokens. */
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  color: var(--color-text-primary);
+}
+
+.prose section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.prose h2 {
+  font-family: var(--text-h3-family);
+  font-size: var(--text-h3);
+  font-weight: var(--text-h3-weight);
+  line-height: var(--text-h3-line-height);
+  letter-spacing: var(--text-h3-tracking);
+}
+
+.prose h3 {
+  font-family: var(--text-h4-family);
+  font-size: var(--text-h4);
+  font-weight: var(--text-h4-weight);
+  line-height: var(--text-h4-line-height);
+  letter-spacing: var(--text-h4-tracking);
+}
+
+.prose p,
+.prose li {
+  font-family: var(--text-body-m-family);
+  font-size: var(--text-body-m);
+  font-weight: var(--text-body-m-weight);
+  line-height: var(--text-body-m-line-height);
+  text-wrap: pretty;
+}
+
+.prose ul,
+.prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.prose a {
+  border-radius: var(--radius-sm);
+  color: var(--color-text-brand);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: var(--border-width-3);
+  transition: color var(--duration-hover) ease-out;
+}
+
+.prose a:hover {
+  color: var(--color-text-primary);
+}

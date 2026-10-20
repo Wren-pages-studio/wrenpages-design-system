@@ -5,6 +5,7 @@ export * from './FormField';
 export * from './InfoCard';
 export * from './LinkButton';
 export * from './NavItem';
+export * from './Prose';
 export * from './SectionHeading';
 export * from './SocialLinks';
 export * from './Stat';
