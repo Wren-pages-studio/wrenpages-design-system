@@ -1,0 +1,51 @@
+/* Logo · Honey bird in a Forest circle, Forest eye; wordmark Fraunces 600 outlined. */
+.logo {
+  display: block;
+  width: auto;
+  flex: none;
+}
+
+.sm {
+  height: var(--size-logo-h);
+}
+
+.lg {
+  height: var(--size-symbol-lg);
+}
+
+.disc {
+  fill: var(--color-bg-inverse);
+}
+
+.bird {
+  fill: var(--color-bg-accent);
+}
+
+.eye {
+  fill: var(--color-bg-inverse);
+}
+
+.wing {
+  fill: none;
+  stroke: var(--color-bg-inverse);
+  stroke-width: 3.2;
+  stroke-linejoin: round;
+}
+
+.fold {
+  fill: var(--color-bg-inverse);
+}
+
+.ring {
+  fill: none;
+  stroke: var(--color-text-inverse);
+  stroke-width: 5;
+}
+
+.wordmark {
+  fill: var(--color-text-brand);
+}
+
+.dark .wordmark {
+  fill: var(--color-text-inverse);
+}

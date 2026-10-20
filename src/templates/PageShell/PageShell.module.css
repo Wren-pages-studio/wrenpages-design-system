@@ -1,0 +1,16 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-bg-canvas);
+  container: page / inline-size;
+}
+
+.hasSticky {
+  padding-bottom: var(--size-sticky-cta-h);
+}
+
+@media (width >= 768px) {
+  .hasSticky {
+    padding-bottom: var(--space-0);
+  }
+}

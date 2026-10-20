@@ -1,0 +1,21 @@
+.pageHeader {
+  padding: var(--space-12) var(--space-6) var(--space-8);
+}
+
+.container {
+  gap: var(--space-4);
+}
+
+@container page (min-width: 768px) {
+  .pageHeader {
+    padding-right: var(--space-10);
+    padding-left: var(--space-10);
+  }
+}
+
+@container page (min-width: 1280px) {
+  .pageHeader {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-10);
+  }
+}

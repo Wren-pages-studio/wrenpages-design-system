@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  align-items: start;
+  gap: var(--space-10);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  color: var(--color-text-inverse);
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.alternative a {
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-semibold);
+  text-underline-offset: var(--border-width-3);
+}
+
+.alternative a:hover {
+  color: var(--color-text-accent);
+}
+
+@container page (min-width: 1280px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+}

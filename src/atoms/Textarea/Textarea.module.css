@@ -1,0 +1,15 @@
+.textarea {
+  composes: input from '../Input/Input.module.css';
+
+  min-height: var(--size-textarea-min-h);
+  resize: vertical;
+  line-height: var(--text-body-m-line-height);
+}
+
+.is-hover {
+  composes: is-hover from '../Input/Input.module.css';
+}
+
+.is-focus {
+  composes: is-focus from '../Input/Input.module.css';
+}

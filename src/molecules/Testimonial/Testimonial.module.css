@@ -1,0 +1,14 @@
+.testimonial {
+  gap: var(--space-4);
+  margin: var(--space-0);
+}
+
+.stars {
+  display: flex;
+  gap: var(--space-1);
+  color: var(--color-icon-accent);
+}
+
+.business {
+  display: block;
+}

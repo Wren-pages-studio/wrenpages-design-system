@@ -1,0 +1,44 @@
+/* Badge · Tone */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-family: var(--text-label-s-family);
+  font-size: var(--text-label-s);
+  font-weight: var(--text-label-s-weight);
+  line-height: var(--text-label-s-line-height);
+  letter-spacing: var(--text-label-s-tracking);
+  white-space: nowrap;
+}
+
+.accent {
+  background: var(--color-bg-accent);
+  color: var(--color-text-on-accent);
+}
+
+.brand {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.neutral {
+  background: var(--color-bg-subtle);
+  color: var(--color-text-secondary);
+}
+
+.success {
+  background: var(--color-bg-success-subtle);
+  color: var(--color-text-success);
+}
+
+.error {
+  background: var(--color-bg-error-subtle);
+  color: var(--color-text-error);
+}
+
+.outline {
+  box-shadow: inset 0 0 0 var(--border-width-1) var(--color-border-brand);
+  color: var(--color-text-brand);
+}

@@ -1,0 +1,47 @@
+.tone-inherit {
+  color: inherit;
+}
+
+.tone-primary {
+  color: var(--color-text-primary);
+}
+
+.tone-secondary {
+  color: var(--color-text-secondary);
+}
+
+.tone-muted {
+  color: var(--color-text-muted);
+}
+
+.tone-brand {
+  color: var(--color-text-brand);
+}
+
+.tone-inverse {
+  color: var(--color-text-inverse);
+}
+
+.tone-accent {
+  color: var(--color-text-accent);
+}
+
+.tone-error {
+  color: var(--color-text-error);
+}
+
+.tone-success {
+  color: var(--color-text-success);
+}
+
+.align-start {
+  text-align: start;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.measure {
+  max-width: var(--size-measure-prose);
+}

@@ -1,0 +1,40 @@
+.toast {
+  position: fixed;
+  bottom: var(--size-toast-offset);
+  left: 50%;
+  z-index: var(--z-toast);
+  max-width: var(--size-toast-max-w);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-inverse-strong);
+  box-shadow: var(--shadow-3);
+  color: var(--color-text-inverse);
+  font-family: var(--text-body-s-family);
+  font-size: var(--text-body-s);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-caption-line-height);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(var(--rise-y));
+  transition:
+    opacity var(--duration-accordion) ease-out,
+    transform var(--duration-accordion) ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.inline {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  display: inline-block;
+  transform: none;
+}
+
+.inline.visible {
+  transform: none;
+}

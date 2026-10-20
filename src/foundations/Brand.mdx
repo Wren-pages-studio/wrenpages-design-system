@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Logo } from '../atoms/Logo';
+
+<Meta title="Foundations/Brand & Logo" />
+
+# Brand
+
+**Positioning.** For small businesses that need a website that actually brings customers, Wren Pages builds fast,
+friendly landing pages and small sites at a small-business price, with no agency jargon and no surprises.
+
+**Tagline.** Small sites. Big first impressions.
+
+## Tone of voice
+
+- **Warm** — a neighbor who happens to know the web.
+- **Direct** — short sentences, plain English.
+- **No jargon** — no “synergies”, no “solutions”.
+- **“We” voice** — the studio speaks as _we_; signed “— The Wren Pages team”.
+- **Promises in numbers** — “loads in under 2s”, “~7 days”, “2 rounds of edits”.
+
+| ✓ Do                                | ✕ Don’t                                    |
+| ----------------------------------- | ------------------------------------------ |
+| “We build fast, friendly websites.” | “Our team of experts leverages synergies.” |
+
+**No founder, no faces.** Never use the founder’s name, photo, face or signature, and no corporate stock photos of
+people. Visuals = the bird, phone/site mockups, screens.
+
+# Logo
+
+A wren (small, chubby, short tail cocked up) whose wing is a page with a folded corner. Honey bird in a Forest
+circle, Forest eye; flat, max 3 colors. Wordmark: Fraunces SemiBold 600, outlined to paths.
+
+<div className="sb-row">
+  <Logo />
+  <div className="sb-inverse">
+    <Logo theme="dark" />
+  </div>
+  <Logo type="symbol" size="lg" />
+  <Logo type="favicon" />
+</div>
+
+| Asset                        | Component                 | Static file                                                     |
+| ---------------------------- | ------------------------- | --------------------------------------------------------------- |
+| Horizontal (primary)         | `<Logo />`                | `@wrenpages/design-system/assets/logo/wrenpages-horizontal.svg` |
+| Horizontal on Forest         | `<Logo theme="dark" />`   | `…/wrenpages-horizontal-on-forest.svg`                          |
+| Symbol                       | `<Logo type="symbol" />`  | `…/wrenpages-symbol.svg`                                        |
+| Favicon (simplified, < 24px) | `<Logo type="favicon" />` | `…/favicon.svg`                                                 |
+
+**Clear space** = height of the “W” on all sides. **Minimum size:** horizontal 120px wide · symbol 16px (use the
+favicon below 24px).
+
+**Don’t:** stretch · recolor · add effects/shadow · rotate · place on busy, low-contrast photos.

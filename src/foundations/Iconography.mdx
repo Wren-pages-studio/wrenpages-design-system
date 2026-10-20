@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Illustration } from '../atoms/Illustration';
+import { IconGallery } from './docs-blocks';
+
+<Meta title="Foundations/Iconography & Illustration" />
+
+# Iconography
+
+24 Lucide-style icons (ISC licence, redrawn), 24×24 grid, 2px stroke, round caps/joins, `currentColor`.
+Sizes 14 / 16 / 20 / 24 (`size="xs|sm|md|lg"`). Tones: `default` (Ink), `brand` (Forest), `inverse` (Cream),
+`accent` (Honey — on Forest or as filled stars only). Decorative by default (`aria-hidden`); pass `label` for meaning.
+
+<IconGallery />
+
+# Illustration
+
+Never a personal photo. Bird = brand mascot; phone mockup = hero visual; image = 4:3 WebP slot (lazy, width/height set).
+
+<div className="sb-token-grid">
+  <Illustration type="bird" />
+  <Illustration type="bird-flying" />
+  <Illustration type="phone" />
+  <Illustration type="image" />
+</div>

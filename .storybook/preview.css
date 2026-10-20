@@ -1,0 +1,75 @@
+/* Storybook-only helpers. */
+.sb-page {
+  container: page / inline-size;
+}
+
+.sb-page--full {
+  min-height: 100vh;
+  background: var(--color-bg-canvas);
+}
+
+/* Docs tables for tokens */
+.sb-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--size-hero-visual-h-mobile), 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) var(--space-0);
+}
+
+.sb-swatch {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  box-shadow: inset 0 0 0 var(--border-width-1) var(--color-border-default);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+}
+
+.sb-swatch__chip {
+  height: var(--space-16);
+  border-bottom: var(--border-width-1) solid var(--color-border-default);
+}
+
+.sb-swatch__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.sb-swatch__meta code {
+  color: var(--color-text-muted);
+}
+
+.sb-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.sb-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sb-space-bar {
+  height: var(--space-4);
+  border-radius: var(--radius-xs);
+  background: var(--color-bg-accent);
+}
+
+.sb-label {
+  min-width: var(--space-32);
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+}
+
+.sb-inverse {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}

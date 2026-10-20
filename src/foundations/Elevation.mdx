@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Elevations, GridTable } from './docs-blocks';
+
+<Meta title="Foundations/Elevation, Grid & Motion" />
+
+# Elevation & focus
+
+| Token                              | Use                                                      |
+| ---------------------------------- | -------------------------------------------------------- |
+| `--shadow-1` · Elevation/1 Card    | step, work, pricing cards                                |
+| `--shadow-2` · Elevation/2 Raised  | highlighted pricing card                                 |
+| `--shadow-3` · Elevation/3 Overlay | form card, sticky CTA, toast                             |
+| `--focus-ring`                     | 2px cream/100 + 2px forest/500 — every focusable element |
+
+<Elevations />
+
+# Grid & breakpoints
+
+| Breakpoint    | Width                    | Container            | Section padding |
+| ------------- | ------------------------ | -------------------- | --------------- |
+| Mobile (base) | 375–767                  | fluid                | 64              |
+| Tablet        | ≥768                     | fluid                | 64              |
+| Desktop       | ≥1280 (designed at 1440) | 1120 (`--container`) | 96              |
+
+<GridTable />
+
+Components respond to the **`page` size container** declared by `<PageShell>` (`@container page (min-width: 768px / 1280px)`),
+so the same organism renders mobile or desktop by its frame width. CSS custom properties cannot drive `@container`,
+so those two literals are the only numbers allowed in component CSS; they mirror `tokens.breakpoints`.
+
+# Motion
+
+| Interaction                  | Duration / easing       | Token                               |
+| ---------------------------- | ----------------------- | ----------------------------------- |
+| Hover / pressed color change | 150 ms ease-out         | `--duration-hover`                  |
+| Accordion open/close         | 200 ms                  | `--duration-accordion` `--ease-out` |
+| Arrow nudge on button hover  | 150 ms, translateX(2px) | `--nudge-x`                         |
+| Toast / overlay              | 200 ms fade + 16px rise | `--rise-y`                          |
+| `prefers-reduced-motion`     | all transitions off     | —                                   |

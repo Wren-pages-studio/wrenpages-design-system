@@ -1,0 +1,90 @@
+name: Release
+
+# Every push to `main` (a merged release/* or hotfix/* branch, per gitflow):
+#   1. runs the full quality gate;
+#   2. publishes to npm ONLY if package.json version > version on npm;
+#   3. tags vX.Y.Z and creates the GitHub Release;
+#   4. deploys the Storybook docs to GitHub Pages.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write # tag + GitHub Release
+  id-token: write # npm provenance
+  pages: write
+
+jobs:
+  verify:
+    name: Quality gate
+    runs-on: ubuntu-latest
+    outputs:
+      should_publish: ${{ steps.version.outputs.should_publish }}
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - id: version
+        run: npm run check:version
+
+  publish:
+    name: Publish to npm
+    needs: verify
+    if: needs.verify.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm run build
+      - name: npm publish (with provenance)
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: v${{ needs.verify.outputs.version }}
+        run: |
+          git tag "$VERSION"
+          git push origin "$VERSION"
+          gh release create "$VERSION" --title "$VERSION" --generate-notes
+
+  storybook:
+    name: Deploy Storybook (GitHub Pages)
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build-storybook
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: storybook-static
+      - id: deployment
+        uses: actions/deploy-pages@v4
