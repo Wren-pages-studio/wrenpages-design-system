@@ -4,7 +4,10 @@ name: Release
 #   1. runs the full quality gate;
 #   2. publishes to npm ONLY if package.json version > version on npm;
 #   3. tags vX.Y.Z and creates the GitHub Release;
-#   4. deploys the Storybook docs to GitHub Pages.
+#   4. deploys the Storybook docs to Cloudflare Pages (works for private repos on any plan).
+#
+# Repository secrets: NPM_TOKEN, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID.
+# Optional repository variable: CF_STORYBOOK_PROJECT (default "wrenpages-storybook").
 on:
   push:
     branches: [main]
@@ -16,8 +19,6 @@ concurrency:
 
 permissions:
   contents: write # tag + GitHub Release
-  id-token: write # npm provenance
-  pages: write
 
 jobs:
   verify:
@@ -44,7 +45,6 @@ jobs:
     needs: verify
     if: needs.verify.outputs.should_publish == 'true'
     runs-on: ubuntu-latest
-    environment: npm
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -53,9 +53,9 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org
       - run: npm ci
-      - run: npm run build
-      - name: npm publish (with provenance)
-        run: npm publish --provenance --access public
+      - name: npm publish
+        # `prepack` builds dist/. Provenance needs a public repository, so it is not used here.
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Tag and GitHub Release
@@ -68,23 +68,29 @@ jobs:
           gh release create "$VERSION" --title "$VERSION" --generate-notes
 
   storybook:
-    name: Deploy Storybook (GitHub Pages)
+    name: Deploy Storybook (Cloudflare Pages)
     needs: verify
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
+      - name: Cloudflare not configured yet
+        if: env.HAS_CF != 'true'
+        run: echo "::warning::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets to publish the Storybook."
       - uses: actions/checkout@v4
+        if: env.HAS_CF == 'true'
       - uses: actions/setup-node@v4
+        if: env.HAS_CF == 'true'
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+        if: env.HAS_CF == 'true'
       - run: npm run build-storybook
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+        if: env.HAS_CF == 'true'
+      - uses: cloudflare/wrangler-action@v3
+        if: env.HAS_CF == 'true'
         with:
-          path: storybook-static
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy storybook-static --project-name=${{ vars.CF_STORYBOOK_PROJECT || 'wrenpages-storybook' }} --branch=main --commit-dirty=true
