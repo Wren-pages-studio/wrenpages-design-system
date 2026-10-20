@@ -32,8 +32,8 @@ export const semanticColors = {
     muted: 'ink.500',
     inverse: 'cream.100',
     brand: 'forest.700',
-    /** Only on forest backgrounds (4.24:1). Never on light surfaces. */
-    accent: 'honey.400',
+    /** Only on forest backgrounds: honey/300 on forest/700 = 4.75:1 (WCAG AA). Never on light surfaces. */
+    accent: 'honey.300',
     'on-accent': 'ink.900',
     error: 'coral.700',
     success: 'green.700',

@@ -21,12 +21,16 @@ export function LinkProvider({ component, children }: { component: LinkComponent
 
 export const isExternalHref = (href: string) => /^(https?:|mailto:|tel:|#)/.test(href);
 
+/** Absolute web URLs (other sites, social profiles) open in a new tab. */
+export const isWebUrl = (href: string) => /^https?:\/\//.test(href);
+
 export const BaseLink = forwardRef<HTMLAnchorElement, LinkComponentProps>(function BaseLink(props, ref) {
   const Custom = useContext(LinkContext);
   // The adapter comes from context and is stable for the app's lifetime (not created during render).
   // eslint-disable-next-line react-hooks/static-components
   if (Custom && !isExternalHref(props.href)) return <Custom {...props} />;
-  // Content arrives through props.children.
+  const newTab = isWebUrl(props.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+  // Content arrives through props.children. Explicit target/rel props win over the defaults.
   // eslint-disable-next-line jsx-a11y/anchor-has-content
-  return <a ref={ref} {...props} />;
+  return <a ref={ref} {...newTab} {...props} />;
 });

@@ -161,3 +161,16 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.motifStroke {
+  fill: none;
+  stroke: var(--color-border-brand);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.poleStripes {
+  fill: none;
+  stroke: var(--color-bg-inverse);
+  stroke-width: 5;
+}
